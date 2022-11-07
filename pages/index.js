@@ -79,6 +79,11 @@ const Home = ({videos, account}) => {
           <img src={myVideo.thumbnail.url} alt={myVideo.title} />
         </div>
         <div className="video-feed">
+          <a href="#disney"><div className="franchise"></div></a>
+          <a href="#pixar"><div className="franchise"></div></a>
+          <a href="#star-wars"><div className="franchise"></div></a>
+          <a href="#nat-geo"><div className="franchise"></div></a>
+          <a href="#marvel"><div className="franchise"></div></a>
           <Section genre={'Recommanded for you'} videos={unSeenVideos(videos)} />
           <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
           <Section genre={'Thriller'} videos={filterVideos(videos, 'thriller')} />
@@ -86,7 +91,7 @@ const Home = ({videos, account}) => {
           <Section genre={'Pixar'} videos={filterVideos(videos, 'pixar')} />
           <Section genre={'Marvel'} videos={filterVideos(videos, 'marvel')} />
           <Section genre={'National Geographic'} videos={filterVideos(videos, 'national-geographic')} />
-          <Section genre={'Disney'} videos={filterVideos(videos, 'disney')} />
+          <Section id="disney" genre={'Disney'} videos={filterVideos(videos, 'disney')} />
           <Section genre={'Star Wars'} videos={filterVideos(videos, 'star-wars')} />
         </div>
       </div>
