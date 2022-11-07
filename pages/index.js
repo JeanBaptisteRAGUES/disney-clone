@@ -1,6 +1,14 @@
 import { gql, GraphQLClient} from 'graphql-request';
+import Link from 'next/Link';
+import Image from 'next/Image';
 import Navbar from '../components/Navbar';
 import Section from '../components/Section';
+import disneyLogo from '../public/disney-button.png';
+import pixarLogo from '../public/pixar-button.png';
+import marvelLogo from '../public/marvel-button.png';
+import natgeoLogo from '../public/natgeo-button.png';
+import starwarsLogo from '../public/star-wars-button.png';
+
 
 export const getStaticProps = async () => {
   const url = process.env.ENDPOINT;
@@ -71,6 +79,8 @@ const Home = ({videos, account}) => {
 
   const myVideo = randomVideo(videos);
 
+  console.log(disneyLogo);
+
   return (
     <>
       <Navbar account={account} />
@@ -79,21 +89,21 @@ const Home = ({videos, account}) => {
           <img src={myVideo.thumbnail.url} alt={myVideo.title} />
         </div>
         <div className="video-feed">
-          <a href="#disney"><div className="franchise"></div></a>
-          <a href="#pixar"><div className="franchise"></div></a>
-          <a href="#star-wars"><div className="franchise"></div></a>
-          <a href="#nat-geo"><div className="franchise"></div></a>
-          <a href="#marvel"><div className="franchise"></div></a>
-          <Section genre={'Recommanded for you'} videos={unSeenVideos(videos)} />
-          <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
-          <Section genre={'Thriller'} videos={filterVideos(videos, 'thriller')} />
-          <Section genre={'Classic'} videos={filterVideos(videos, 'classic')} />
-          <Section genre={'Pixar'} videos={filterVideos(videos, 'pixar')} />
-          <Section genre={'Marvel'} videos={filterVideos(videos, 'marvel')} />
-          <Section genre={'National Geographic'} videos={filterVideos(videos, 'national-geographic')} />
-          <Section id="disney" genre={'Disney'} videos={filterVideos(videos, 'disney')} />
-          <Section genre={'Star Wars'} videos={filterVideos(videos, 'star-wars')} />
+          <Link href="#disney"><div className="franchise" id="disney"><Image src={disneyLogo} alt="Disney"></Image></div></Link>
+          <Link href="#pixar"><div className="franchise" id="pixar"><Image src={pixarLogo} alt="Pixar"></Image></div></Link>
+          <Link href="#star-wars"><div className="franchise" id="star-wars"><Image src={starwarsLogo} alt="Star-Wars"></Image></div></Link>
+          <Link href="#nat-geo"><div className="franchise" id="nat-geo"><Image src={natgeoLogo} alt="National-Geographic"></Image></div></Link>
+          <Link href="#marvel"><div className="franchise" id="marvel"><Image src={marvelLogo} alt="Marvel"></Image></div></Link>
         </div>
+        <Section genre={'Recommanded for you'} videos={unSeenVideos(videos)} />
+        <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
+        <Section genre={'Thriller'} videos={filterVideos(videos, 'thriller')} />
+        <Section genre={'Classic'} videos={filterVideos(videos, 'classic')} />
+        <Section id="pixar" genre={'Pixar'} videos={filterVideos(videos, 'pixar')} />
+        <Section id="marvel" genre={'Marvel'} videos={filterVideos(videos, 'marvel')} />
+        <Section id="nat-geo" genre={'National Geographic'} videos={filterVideos(videos, 'national-geographic')} />
+        <Section id="disney" genre={'Disney'} videos={filterVideos(videos, 'disney')} />
+        <Section id="star-wars" genre={'Star Wars'} videos={filterVideos(videos, 'star-wars')} />
       </div>
     </>
   )
