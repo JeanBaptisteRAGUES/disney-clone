@@ -89,11 +89,11 @@ const Home = ({videos, account}) => {
           <img src={myVideo.thumbnail.url} alt={myVideo.title} />
         </div>
         <div className="video-feed">
-          <Link href="#disney"><div className="franchise" id="disney"><Image src={disneyLogo} alt="Disney"></Image></div></Link>
-          <Link href="#pixar"><div className="franchise" id="pixar"><Image src={pixarLogo} alt="Pixar"></Image></div></Link>
-          <Link href="#star-wars"><div className="franchise" id="star-wars"><Image src={starwarsLogo} alt="Star-Wars"></Image></div></Link>
-          <Link href="#nat-geo"><div className="franchise" id="nat-geo"><Image src={natgeoLogo} alt="National-Geographic"></Image></div></Link>
-          <Link href="#marvel"><div className="franchise" id="marvel"><Image src={marvelLogo} alt="Marvel"></Image></div></Link>
+          <Link href="#disney" legacyBehavior><div className="franchise" id="disney"><Image src={disneyLogo} alt="Disney"></Image></div></Link>
+          <Link href="#pixar" legacyBehavior><div className="franchise" id="pixar"><Image src={pixarLogo} alt="Pixar"></Image></div></Link>
+          <Link href="#star-wars" legacyBehavior><div className="franchise" id="star-wars"><Image src={starwarsLogo} alt="Star-Wars"></Image></div></Link>
+          <Link href="#nat-geo" legacyBehavior><div className="franchise" id="nat-geo"><Image src={natgeoLogo} alt="National-Geographic"></Image></div></Link>
+          <Link href="#marvel" legacyBehavior><div className="franchise" id="marvel"><Image src={marvelLogo} alt="Marvel"></Image></div></Link>
         </div>
         <Section genre={'Recommanded for you'} videos={unSeenVideos(videos)} />
         <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
